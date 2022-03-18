@@ -1,10 +1,10 @@
 const db = require("../models");
 const User = db.user;
 
-getUser = async (req, res, next) => {
+getcartUser = async (req, res, next) => {
   let user;
   try {
-    user = await User.findById(req.params.id);
+    user = await User.findById(req.userId);
     if (!user) {
       return res.status(404).json({ message: "cannot find user" });
     }
@@ -15,4 +15,4 @@ getUser = async (req, res, next) => {
   next();
 };
 
-module.exports = getUser;
+module.exports = getcartUser;

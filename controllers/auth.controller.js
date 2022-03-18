@@ -88,6 +88,7 @@ exports.signin = async (req, res) => {
         username: user.username,
         email: user.email,
         roles: authorities,
+        cart: user.cart,
         accessToken: token,
       });
     });

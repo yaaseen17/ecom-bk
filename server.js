@@ -57,6 +57,7 @@ require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);
 require("./routes/products.routes")(app);
 require("./routes/cart.routes")(app);
+require("./routes/conatct.routes")(app);
 // set port, listen for requests
 
 app.listen(process.env.PORT || 5000, () => console.log(" Server started"));

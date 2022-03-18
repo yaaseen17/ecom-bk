@@ -5,7 +5,7 @@ getProduct = async (req, res, next) => {
   let products;
   try {
     products = await Product.findById(req.params.id);
-    if (products == null) {
+    if (!products) {
       return res.status(404).json({ message: "cannot find product" });
     }
   } catch (err) {

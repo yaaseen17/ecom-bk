@@ -20,7 +20,7 @@ module.exports = function (app) {
     controller.signup
   );
   app.post("/auth/signin", controller.signin);
-  app.get("/users", async (req, res) => {
+  app.get("/auth/users", async (req, res) => {
     try {
       const users = await User.find();
       res.json(users);
@@ -29,8 +29,8 @@ module.exports = function (app) {
     }
   });
   app.delete(
-    "/users/:id",
-    [getUser, authJwt.verifyToken, authJwt.isAdmin],
+    "/auth/users/:id",
+    [getUser, authJwt.verifyToken],
     async (req, res) => {
       try {
         await res.user.remove();
